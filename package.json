@@ -4,12 +4,13 @@
   "description": "JavaScript Getting Started Pluralsight course by Mark Zamoyta",
   "scripts": {
     "start": "npm-run-all --parallel open:src share",
-    "open:src": "node buildScripts/srcServer.js",
+    "open:src": "babel-node buildScripts/srcServer.js",
     "share": "lt --port 3000"
   },
   "author": "Samuel Mwangi",
   "license": "MIT",
   "dependencies": {
+    "@types/open": "^6.2.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
@@ -34,6 +35,5 @@
     "localtunnel": "1.8.1",
     "npm-run-all": "3.1.1",
     "open": "0.0.5"
-
   }
 }
