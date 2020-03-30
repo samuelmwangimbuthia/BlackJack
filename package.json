@@ -1,11 +1,12 @@
 {
-  "name": "javascript-development-environment",
+  "name": "blackjack",
   "version": "1.0.0",
   "description": "JavaScript Getting Started Pluralsight course by Mark Zamoyta",
   "scripts": {
-    "start": "npm-run-all --parallel open:src share",
+    "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node buildScripts/srcServer.js",
-    "share": "lt --port 3000"
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
   },
   "author": "Samuel Mwangi",
   "license": "MIT",
@@ -32,8 +33,21 @@
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
     "jsdom": "9.8.0",
+    "json-schema-faker": "0.3.6",
+    "json-server": "0.8.22",
     "localtunnel": "1.8.1",
+    "mocha": "3.1.2",
+    "nock": "8.1.0",
     "npm-run-all": "3.1.1",
-    "open": "0.0.5"
+    "nsp": "2.6.2",
+    "numeral": "1.5.3",
+    "open": "0.0.5",
+    "rimraf": "2.5.4",
+    "style-loader": "0.13.1",
+    "surge": "0.20.4",
+    "webpack": "^4.42.1",
+    "webpack-dev-middleware": "1.8.4",
+    "webpack-hot-middleware": "2.13.0",
+    "webpack-md5-hash": "0.0.5"
   }
 }

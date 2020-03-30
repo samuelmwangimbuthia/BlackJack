@@ -2,6 +2,7 @@
 // BlackJack
 // by Samuel Mwangi Mbuthia
 //
+//import 'style.css';
 
 // Card Variables
 let suits = ['Hearts','Clubs','Diamonds','Spades'],
@@ -12,6 +13,8 @@ let textArea = document.getElementById('text-area');
 let newGameButton = document.getElementById('new-game-button');
 let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
+let singlePlayerButton = document.getElementById('single-player-button');
+let multiPlayerButton = document.getElementById('multi-player-button');
 
 //Game Variables
 let gameStarted = false,
@@ -23,14 +26,31 @@ let gameStarted = false,
     playerScore =0,
     deck = [];
 
-//To hide the hit and stay buttons at the start of the game
+//To hide the hit, stay, singlePlayer and Multiplayer buttons at the start of the game
 hitButton.style.display= 'none';
 stayButton.style.display= 'none';
+singlePlayerButton.style.display = 'none';
+multiPlayerButton.style.display = 'none';
 
 showStatus();
 
-//Handling a button click event NB. Function doesn't require a name
+//handling new button click event
 newGameButton.addEventListener('click', function(){
+  gameStarted=false;
+  gameOver =false;
+  playerWon = false;
+
+  newGameButton.style.display = 'none';
+  hitButton.style.display= 'none';
+  stayButton.style.display= 'none';
+  singlePlayerButton.style.display= 'inline';
+  multiPlayerButton.style.display= 'inline';
+
+
+});
+
+//Handling a button click event NB. Function doesn't require a name
+singlePlayerButton.addEventListener('click', function(){
   gameStarted=true;
   gameOver =false;
   playerWon = false;
@@ -39,8 +59,9 @@ newGameButton.addEventListener('click', function(){
   shuffleDeck(deck);
   dealerCards=[getNextCard(),getNextCard()];
   playerCards =[getNextCard(),getNextCard()];
-  
-  newGameButton.style.display = 'none';
+
+  singlePlayerButton.style.display = 'none';
+  multiPlayerButton.style.display = 'none';
   hitButton.style.display= 'inline';
   stayButton.style.display= 'inline';
 
@@ -72,9 +93,9 @@ function createDeck(){
       };
       deck.push(card);
     }
-  }    
-  return deck; 
-}; 
+  }
+  return deck;
+};
 
 //shuffle deck
 function shuffleDeck(deck){
@@ -82,7 +103,7 @@ function shuffleDeck(deck){
     let swapIdx = Math.trunc(Math.random()*deck.length); //calculate the index to swap with
     let tmp =deck[swapIdx]; //temporarily hold on to deck swap index
     deck[swapIdx]=deck[i]; //swap deck i with deck swap index
-    deck[i]=tmp;  
+    deck[i]=tmp;
   }
 }
 //function to print out the card
@@ -119,7 +140,7 @@ function getCardNumericValue(card){
   }
 
 }
- 
+
 function getScore(cardArray){
   let score = 0;
   let hasAce =false;
@@ -137,7 +158,7 @@ function getScore(cardArray){
 }
 
 function checkForEndOfGame(){
- 
+
   updateScore();
   if (gameOver){
     // let Dealer take cards
@@ -170,7 +191,8 @@ function updateScore(){
 
 function showStatus(){
   if (!gameStarted) {
-    textArea.innerText = 'Welcome to BlackJack!';
+    textArea.innerText = 'Welcome to BlackJack!',
+    'Please Choose Player Mode...';
     return;
   }
   //calculating the score
@@ -190,11 +212,11 @@ function showStatus(){
    'Dealer has: \n' +
    dealerCardString +
    '(score: '+dealerScore + ')\n\n' + //to show them on a separate paragraph---break
-  
+
    'Player has: \n' +
    playerCardString +
    '(score: '+playerScore + ')\n\n' //to show them on a separate paragraph---break
-  
+
   if(gameOver){
     if(playerWon){
       textArea.innerText +='YOU WIN!';
@@ -203,14 +225,14 @@ function showStatus(){
     }
     newGameButton.style.display = 'inline';
     hitButton.style.display= 'none';
-    stayButton.style.display= 'none';    
+    stayButton.style.display= 'none';
   }
 
 }
 /*
 
 // variable that holds the player cards
-let playerCards = [getNextCard(), getNextCard() ]; 
+let playerCards = [getNextCard(), getNextCard() ];
 let salesTax;
 
 console.log('Welcome to BlackJack');
