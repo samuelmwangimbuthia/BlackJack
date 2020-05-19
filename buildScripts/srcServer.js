@@ -28,7 +28,7 @@ app.use(express.static('src'));
 var options = {
   dotfiles: 'ignore',
   etag: false,
-  extensions: ['htm','css','js', 'html','jpg'],
+  extensions: ['htm','css','js', 'html','jpg','png'],
   index: false,
   maxAge: '1d',
   redirect: false,
@@ -38,6 +38,7 @@ var options = {
 }
 
 app.use(express.static('src', options))
+app.use(express.static('img', options))
 
 
 //Tell Express to listen on the port we defined above

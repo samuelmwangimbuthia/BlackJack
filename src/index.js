@@ -108,13 +108,18 @@ function shuffleDeck(deck){
 }
 //function to print out the card
 function getCardString(card){
-  return card.values + ' of ' + card.suits
+  return card.values + ' of ' + card.suits+ ".png"
 };
 
 //to get the next card in the deck
   function getNextCard(){
     return deck.shift();
   };
+
+//to show the image of the dealt cards
+
+
+
 function getCardNumericValue(card){
   switch(card.values){
     case 'Ace':
@@ -207,6 +212,7 @@ function showStatus(){
   }
 
   updateScore();
+  showCardImage();
 
   textArea.innerText =
    'Dealer has: \n' +

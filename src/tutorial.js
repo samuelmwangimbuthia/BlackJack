@@ -8,13 +8,13 @@ if (state = 'NewKariguini'){
 };
 
 switch(state){
-  case'Texas': 
+  case'Texas':
     salesTax = 7;
     break;
-  case'NewYork': 
+  case'NewYork':
     salesTax = 8;
     break;
-   default: 
+   default:
     salesTax = 9;
     break;
   }
