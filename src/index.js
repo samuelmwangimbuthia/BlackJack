@@ -15,6 +15,10 @@ let hitButton = document.getElementById('hit-button');
 let stayButton = document.getElementById('stay-button');
 let singlePlayerButton = document.getElementById('single-player-button');
 let multiPlayerButton = document.getElementById('multi-player-button');
+let dealerImageArea = document.getElementById('dealerCardImages');
+let playerImageArea = document.getElementById('playerCardImages');
+let dealerCardName = document.getElementById('dealerCardCaption');
+let playerCardName = document.getElementById('playerCardCaption');
 
 //Game Variables
 let gameStarted = false,
@@ -24,7 +28,9 @@ let gameStarted = false,
     playerCards =[],
     dealerScore =0,
     playerScore =0,
-    deck = [];
+    deck = [],
+    dealerImages = [],
+    playerImages =[];
 
 //To hide the hit, stay, singlePlayer and Multiplayer buttons at the start of the game
 hitButton.style.display= 'none';
@@ -165,6 +171,7 @@ function getScore(cardArray){
 function checkForEndOfGame(){
 
   updateScore();
+
   if (gameOver){
     // let Dealer take cards
     while(dealerScore < playerScore
@@ -212,8 +219,54 @@ function showStatus(){
   }
 
   updateScore();
-  showCardImage();
 
+  // print player card images
+  function playerCardImages(){
+    let playerImages = [];
+    for(let i=0; i<playerCards.length; i++){
+      playerImages.unshift(`../img/${getCardString(playerCards[i])}`)
+    }
+
+    playerImages.reverse();
+    return playerImages;
+  }
+
+  // print dealer card images
+  function dealerCardImages(){
+    let dealerImages = [];
+    for(let i=0; i<dealerCards.length; i++){
+      dealerImages.unshift(`../img/${getCardString(dealerCards[i])}`)
+    }
+
+    dealerImages.reverse();
+    return dealerImages;
+
+  }
+
+  //print each image. Iterate through the images in the playerImages array and dealerImages array
+  //print image for each in the html document
+
+  dealerCardImages().forEach(function(item){
+    let image = new Image();
+    image.src = item;
+    dealerImageArea.appendChild(image);
+
+  });
+
+
+  playerCardImages().forEach(function(item){
+    let image = new Image();
+    image.src = item;
+    playerImageArea.appendChild(image);
+
+  });
+
+// update image captions
+dealerCardName.innerText = dealerCardString;
+playerCardName.innerText = playerCardString;
+
+/*
+updateScore();
   textArea.innerText =
    'Dealer has: \n' +
    dealerCardString +
@@ -222,7 +275,7 @@ function showStatus(){
    'Player has: \n' +
    playerCardString +
    '(score: '+playerScore + ')\n\n' //to show them on a separate paragraph---break
-
+*/
   if(gameOver){
     if(playerWon){
       textArea.innerText +='YOU WIN!';

@@ -1,8 +1,68 @@
-body{
-    background-color: #38695d;
+body {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 16px;
+  font-family: Calibri, Arial, Helvetica, sans-serif;
+
+}
+header {
+    background-color:#05E5F5 ;
     font-size: large;
 }
 
-#hit-button{
+h1, h2 {
+  font-size: 42px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+
+#dealerCardCaption{
+  font-size: 16px;
+}
+
+figure:img{
+  size: 40px;
+}
+
+#hit-button {
     color: red;
+}
+
+input {
+  margin-left: 10px;
+  background-color: #8DC750;
+
+}
+
+input:required {
+  border-left: 4px solid #F50539;
+
+}
+
+fieldset {
+  width: 400px;
+
+}
+button {
+  padding: 10px;
+
+}
+
+.backgroundgradient {
+  overflow: hidden;
+  background-color:#8DC750;
+}
+
+.backgroundgradient a {
+  float: left;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+a:hover{
+  color: #df2121;
 }

@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html lang="en-us">
+  <head>
+    <title>BlackJack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Samuel Mwangi">
+    <link rel="stylesheet" href="index.css">
+    <script src="tutorial.js"></script>
+
+
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <img id="logo" src="logo.jpg" alt="A hand holding cards">
+      </div>
+
+      <nav class="backgroundgradient">
+          <a class="navlink" href="index.html">Home</a>
+          <a class="navlink" href="Tutorial.html">Services</a>
+          <a class="navlink" href="portfolio.html">Portfolio</a>
+          <a class="navlink" href="about.html">About</a>
+          <a class="navlink" href="contact.html">Contact</a>
+          <a class="navlink" href="terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <!--The novalidate rule is ideal where you want to skip the validation rules-->
+    <form novalidate class="narrow">
+      <h2 class="h3">Search</h2>
+
+      <input type="search"
+        id="search-text"
+        class="form-control"
+        placeholder="search"
+        autofocus />
+    </form>
+
+    <!--Legal age declaration form -->
+    <form id="mainForm" action="#" method="post">
+      <fieldset class="box">
+        <legend>Your Details</legend>
+        <div>
+          <p>
+            <lable class="textlabel" for ="firstNameInput" >First Name:</lable>
+            <input id="firstNameInput"
+            name="FirstName"
+            type="text"
+            class="textinput"
+            required="required"
+            placeholder="First Name"
+            maxlength="30"/>
+          </p>
+
+          <P>
+            <lable class="textlabel" for ="lastNameInput">Last Name:</lable>
+            <input id="lastNameInput"
+            name="lastName"
+            type="text"
+            class="textinput"
+            placeholder="Last Name"
+            maxlength="50"/>
+          </P>
+
+          <p>
+            <label class="textlabel" for ="emailInput">Email: </label>
+            <input id="emailInput"
+            name="Email"
+            type="email"
+            class="textinput"
+            required>
+          </p>
+
+          <p><label class="textlabel" for = "phoneInput">Phone Number: </label>
+            <input id="phoneInput"
+            name="PhoneNumber"
+            type ="text"
+            class ="textinput">
+          </p>
+
+          <p><label class="textlabel" for = "yourBlogInput">Your Blog :</label>
+            <input id="yourBlogInput"
+            name="Your Blog"
+            type="url"
+            class ="textinput"><br>
+          </p>
+
+          <p><label class="textlabel"for = "dateOfBirthInput">Date of Birth : </label>
+            <input id="dateOfBirthInput"
+            name="Birthday"
+            type="date"
+            class ="textinput">
+          </p>
+
+          <p><label class="textlabel"for = "countryInput">Country :</label>
+            <input id="countryInput"
+            name="Country"
+            type="text"
+            class ="textinput"
+            list = "countryList">
+
+          <datalist id="countryList">
+            <option value="Kenya"></option>
+            <option value="Uganda"></option>
+            <option value="Tanzania"></option>
+            <option value="Sudan"></option>
+          </datalist>
+          </p>
+
+          <p><label class="textlabel"for = "cityInput">City : </label>
+            <input id="cityInput"
+            name="City"
+            type="text"
+            class ="textinput">
+          </p>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Your experience</legend>
+        <div>
+          <p>
+            <label class ="textlabel" for ="experienceInput"> How many years of experience do you have?</label>
+            <input type="number"
+            name="experience"
+            min="0"
+            max="10"
+            placeholder="Please enter a value between 1 and 10">
+          </p>
+
+          <p>
+            <label class="textlabel">Rate this game</label>
+            <input type="range"
+             name="points"
+             min="1"
+             max="10">
+          </p>
+          <p>
+            <input type="submit" value="submit">
+          </p>
+        </div>
+      </fieldset>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+  </html>

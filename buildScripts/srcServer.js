@@ -19,9 +19,9 @@ app.use(require('webpack-dev-middleware')(compiler,{
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
+/*
 
-
-/*To serve static files
+To serve static files
 app.use(express.static('src'));
 
 */

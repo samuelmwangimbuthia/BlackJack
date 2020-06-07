@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="index.css">
     <script src="tutorial.js"></script>
 
-
   </head>
 
   <body>
-    <nav>
-      <img id="logo" src="logo.jpg" alt="A hand holding cards">
+    <header>
+      <figure>
+        <img id="logo" src="logo.jpg" alt="A hand holding cards">
 
-      <a class="active" href="index.html">Home</a>
+      </figure>
+      <div>
+        <nav class="backgroundgradient">
+          <a class="navlink" href="index.html">Home</a>
+          <a class="navlink" href="Tutorial.html">Services</a>
+          <a class="navlink" href="portfolio.html">Portfolio</a>
+          <a class="navlink" href="about.html">About</a>
+          <a class="navlink" href="contact.html">Contact</a>
+          <a class="navlink" href="terms.html">Terms</a>
 
-      <a href="Tutorial.html">Services</a>
 
-      <a href="portfolio.html">Portfolio</a>
+        </nav>
+      </div>
+    </header>
 
-      <a href="about.html">About</a>
+    <div>
 
-      <a href="contact.html">Contact</a>
-    </nav>
     <h1 id='title'>BlackJack</h1>
     <h4>by Samuel Mwangi</h4>
     <br>
@@ -37,6 +44,23 @@
     <button id='stay-button'>Stay</button>
     <button id='single-player-button'>Single Player</button>
     <button id='multi-player-button'>Multi Player</button>
+
+    <!--Print card images on the demo id -->
+    </div>
+    <div >
+      <h2>DEALER HAS: </h2>
+      <figure id="dealerCardImages">
+        <figcaption id="dealerCardCaption"></figcaption>
+      </figure>
+    </div>
+
+    <div >
+      <h2>PLAYER HAS: </h2>
+      <figure id="playerCardImages">
+        <figcaption id="playerCardCaption"></figcaption>
+      </figure>
+    </div>
+
     <script src="index.js"></script>
   </body>
   </html>
