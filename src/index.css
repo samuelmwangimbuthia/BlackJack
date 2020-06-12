@@ -11,7 +11,7 @@ header {
 }
 
 h1, h2 {
-  font-size: 42px;
+  font-size: 1.5em;
   font-weight: normal;
   text-transform: uppercase;
 }

@@ -19,6 +19,8 @@ let dealerImageArea = document.getElementById('dealerCardImages');
 let playerImageArea = document.getElementById('playerCardImages');
 let dealerCardName = document.getElementById('dealerCardCaption');
 let playerCardName = document.getElementById('playerCardCaption');
+let dealerImageSection = document.getElementById('dealerImageSection');
+let playerImageSection = document.getElementById('playerImageSection');
 
 //Game Variables
 let gameStarted = false,
@@ -37,6 +39,8 @@ hitButton.style.display= 'none';
 stayButton.style.display= 'none';
 singlePlayerButton.style.display = 'none';
 multiPlayerButton.style.display = 'none';
+dealerImageSection.style.display = 'none';
+playerImageSection.style.display = 'none';
 
 showStatus();
 
@@ -51,11 +55,11 @@ newGameButton.addEventListener('click', function(){
   stayButton.style.display= 'none';
   singlePlayerButton.style.display= 'inline';
   multiPlayerButton.style.display= 'inline';
-
-
+  dealerImageSection.style.display = 'none';
+  playerImageSection.style.display = 'none';
 });
 
-//Handling a button click event NB. Function doesn't require a name
+//Handling a button click event NB. Function expression doesn't require a name
 singlePlayerButton.addEventListener('click', function(){
   gameStarted=true;
   gameOver =false;
@@ -70,6 +74,8 @@ singlePlayerButton.addEventListener('click', function(){
   multiPlayerButton.style.display = 'none';
   hitButton.style.display= 'inline';
   stayButton.style.display= 'inline';
+  dealerImageSection.style.display = 'inline';
+  playerImageSection.style.display = 'inline';
 
   showStatus();
 
@@ -249,6 +255,7 @@ function showStatus(){
   dealerCardImages().forEach(function(item){
     let image = new Image();
     image.src = item;
+
     dealerImageArea.appendChild(image);
 
   });
