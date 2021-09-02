@@ -1,13 +1,102 @@
+/* global-sizing fix */
+:root {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/* set a grey background for the page */
 body {
-  margin: 0;
-  padding-left: 16px;
-  font-size: 16px;
-  font-family: Calibri, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* set global margins */
+body * + * {
+  margin-top: 1.5em;
+}
+
+/* Double container to center page contents */
+.container {
+  background-color: #ddd7d7;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 1.5em;
+}
+
+header, nav {
+    background:linear-gradient(#008cff,#3ecc3e);
+    grid-column: 1/3;
+    grid-row:span 1;
+    margin-top: 0;
+}
+.main{
+  grid-column: 1/3;
+  grid-row:auto;
 
 }
-header {
-    background-color:#05E5F5 ;
-    font-size: large;
+
+/*make main element a grid */
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+}
+
+/*titleArea layout and styles */
+  .titleArea {
+    grid-column: 1/3;
+    grid-row: span 1;
+  }
+/* imageArea layout and styles */
+.imageArea{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto;
+grid-gap: 1.5em;
+background-color: white;
+}
+/*dealer, player styles*/
+
+.dealer, .player{
+  background-color: wheat;
+}
+
+/* styling site navigation bar */
+.flexContainer{
+  display: flex;
+  padding: .5em;
+  border-radius: .2em;
+  list-style-type: none; /* to remove the bullets */
+}
+
+/*Overrides the lobotomized owl top margin*/
+.flexContainer > li {
+  margin-top: 0;
+}
+/*Remove the underline link text, and set a background color for the items*/
+.flexContainer > li > a {
+  display: block;     /*make them block level so that they add to the parent elements height */
+  padding: .5em 1em;
+  text-decoration: none;
+  background-color: #cc6b5a;
+  color: white;
+}
+
+/* add spaces between the navigation items */
+
+.flexContainer > li+li {
+  margin-left: 1.5em;
+}
+
+/* move the last nav item */
+.flexContainer > .flex-right {
+  margin-left: auto;
 }
 
 h1, h2 {
@@ -29,16 +118,6 @@ figure:img{
     color: red;
 }
 
-input {
-  margin-left: 10px;
-  background-color: #8DC750;
-
-}
-
-input:required {
-  border-left: 4px solid #F50539;
-
-}
 
 fieldset {
   width: 400px;
@@ -47,22 +126,4 @@ fieldset {
 button {
   padding: 10px;
 
-}
-
-.backgroundgradient {
-  overflow: hidden;
-  background-color:#8DC750;
-}
-
-.backgroundgradient a {
-  float: left;
-  color: #f2f2f2;
-  text-align: right;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-a:hover{
-  color: #df2121;
 }
