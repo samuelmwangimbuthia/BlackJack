@@ -51,6 +51,7 @@ newGameButton.addEventListener('click', function(){
   playerWon = false;
 
   newGameButton.style.display = 'none';
+  textArea.style.display = 'none';
   hitButton.style.display= 'none';
   stayButton.style.display= 'none';
   singlePlayerButton.style.display= 'inline';
@@ -67,7 +68,7 @@ singlePlayerButton.addEventListener('click', function(){
 
   deck= createDeck();
   shuffleDeck(deck);
-  dealerCards=[getNextCard(),getNextCard()];
+  dealerCards= [getNextCard(),getNextCard()];
   playerCards =[getNextCard(),getNextCard()];
 
   singlePlayerButton.style.display = 'none';
@@ -253,16 +254,14 @@ function showStatus(){
   //print image for each in the html document
 
   dealerCardImages().forEach(function(item){
-    let image = new Image();
+    let image = new Image(100, 200);
     image.src = item;
-
     dealerImageArea.appendChild(image);
-
   });
 
 
   playerCardImages().forEach(function(item){
-    let image = new Image();
+    let image = new Image(100, 200);
     image.src = item;
     playerImageArea.appendChild(image);
 
@@ -286,8 +285,10 @@ updateScore();
   if(gameOver){
     if(playerWon){
       textArea.innerText +='YOU WIN!';
+      textArea.style.display = 'inline';
     } else {
       textArea.innerText += 'DEALER WINS!';
+      textArea.style.display = 'inline';
     }
     newGameButton.style.display = 'inline';
     hitButton.style.display= 'none';

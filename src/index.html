@@ -1,78 +1,71 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>BlackJack</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit = no"
-    />
-    <meta name="author" content="Samuel Mwangi" />
-    <link rel="stylesheet" href="index.css" />
-    <link
-      rel="stylesheet"
-      href="https:ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
-    />
-    <script src="tutorial.js"></script>
-  </head>
 
-  <body>
-    <div class="container grid">
-      <header>
-        <figure>
-          <img id="logo" src="logo.jpg" alt="A hand holding cards" />
-        </figure>
-      </header>
-      <nav class="backgroundgradient">
-        <ul class="flexContainer">
-          <li><a class="navlink" href="index.html">Home</a></li>
-          <li><a class="navlink" href="Tutorial.html">Services</a></li>
-          <li><a class="navlink" href="portfolio.html">Portfolio</a></li>
-          <li><a class="navlink" href="about.html">About</a></li>
-          <li><a class="navlink" href="contact.html">Contact</a></li>
-          <li class="flex-right">
-            <a class="navlink" href="terms.html">Terms</a>
-          </li>
-        </ul>
-      </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>BlackJack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit = no" />
+  <meta name="author" content="Samuel Mwangi" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https:ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="tutorial.js"></script>
+</head>
 
-      <main class="main">
-        <div class="titleArea">
-          <h1 id="title">BlackJack</h1>
-          <h4>by Samuel Mwangi</h4>
-          <br />
+<body>
+  <div class="container grid">
+    <header>
+      <!-- <figure>
+        <img id="logo" src="logo.jpg" alt="A hand holding cards" />
+      </figure> -->
+    </header>
+    <nav class="backgroundgradient">
+      <ul class="flexContainer">
+        <li><a class="navlink" href="index.html">Home</a></li>
+        <li><a class="navlink" href="Tutorial.html">Services</a></li>
+        <li><a class="navlink" href="portfolio.html">Portfolio</a></li>
+        <li><a class="navlink" href="about.html">About</a></li>
+        <li><a class="navlink" href="contact.html">Contact</a></li>
+        <li class="flex-right">
+          <a class="navlink" href="terms.html">Terms</a>
+        </li>
+      </ul>
+    </nav>
 
-          <p id="text-area">Welcome to BlackJack</p>
+    <div class="titleArea">
+      <h1 id="title">BlackJack</h1>
+      <p id="text-area">Welcome to BlackJack</p>
+      <button id="new-game-button">New Game!</button>
+      <button id="hit-button">Hit!</button>
+      <button id="stay-button">Stay</button>
+      <button id="single-player-button">Single Player</button>
+      <button id="multi-player-button">Multi Player</button>
 
-          <button id="new-game-button">New Game!</button>
-          <button id="hit-button">Hit!</button>
-          <button id="stay-button">Stay</button>
-          <button id="single-player-button">Single Player</button>
-          <button id="multi-player-button">Multi Player</button>
-
-          <!--Print card images on the demo id -->
-        </div>
-        <div class="imageArea">
-          <div class="dealer">
-            <h2 id="dealerImageSection">DEALER HAS:</h2>
-            <figure id="dealerCardImages">
-              <figcaption id="dealerCardCaption"></figcaption>
-            </figure>
-          </div>
-
-          <div class="player">
-            <h2 id="playerImageSection">YOU HAVE:</h2>
-            <figure id="playerCardImages">
-              <figcaption id="playerCardCaption"></figcaption>
-            </figure>
-          </div>
-        </div>
-      </main>
+      <!--Print card images on the demo id -->
     </div>
 
-    <script src="index.js"></script>
-    <script src="multiplayer.js"></script>
-  </body>
+    <div class="dealer">
+      <h2 id="dealerImageSection">DEALER HAS:</h2>
+      <figure id="dealerCardImages">
+        <figcaption id="dealerCardCaption"></figcaption>
+      </figure>
+    </div>
+
+    <div class="player">
+      <h2 id="playerImageSection">YOU HAVE:</h2>
+      <figure id="playerCardImages">
+        <figcaption id="playerCardCaption"></figcaption>
+      </figure>
+    </div>
+    <footer>
+      <small>By Samuel Mwangi & Emmanuel Mbuthia</small>
+    </footer>
+
+  </div>
+
+  <script src="index.js"></script>
+  <script src="multiplayer.js"></script>
+</body>
+
 </html>

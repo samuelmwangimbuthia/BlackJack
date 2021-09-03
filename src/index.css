@@ -25,54 +25,54 @@ body * + * {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, auto);
-  grid-gap: 1.5em;
+  grid-template-rows: repeat(5, auto);
+  grid-gap: .5em;
 }
 
-header, nav {
+header, nav, footer{
     background:linear-gradient(#008cff,#3ecc3e);
     grid-column: 1/3;
     grid-row:span 1;
     margin-top: 0;
 }
-.main{
-  grid-column: 1/3;
-  grid-row:auto;
 
-}
-
-/*make main element a grid */
-main{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, auto);
-}
 
 /*titleArea layout and styles */
   .titleArea {
     grid-column: 1/3;
     grid-row: span 1;
+    margin: 0;
+    padding: 0.5em;
   }
-/* imageArea layout and styles */
-.imageArea{
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: auto;
-grid-gap: 1.5em;
-background-color: white;
-}
+
 /*dealer, player styles*/
 
-.dealer, .player{
-  background-color: wheat;
+.dealer{
+  grid-column: 1/2;
+  grid-row: 4/5;
+  background-color: white;
+  margin: 0;
+  padding: 0.5em;
+  margin-left: .5em;
+  border-radius: 0.5em;
+}
+.player{
+  grid-column: 2/3;
+  grid-row: 4/5;
+  background-color: white;
+  margin: 0;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
 }
 
 /* styling site navigation bar */
 .flexContainer{
   display: flex;
-  padding: .5em;
   border-radius: .2em;
+  padding: 0.5em;
   list-style-type: none; /* to remove the bullets */
+  margin: 0;
 }
 
 /*Overrides the lobotomized owl top margin*/
@@ -99,19 +99,9 @@ background-color: white;
   margin-left: auto;
 }
 
-h1, h2 {
-  font-size: 1.5em;
+h1 {
   font-weight: normal;
   text-transform: uppercase;
-}
-
-
-#dealerCardCaption{
-  font-size: 16px;
-}
-
-figure:img{
-  size: 40px;
 }
 
 #hit-button {
