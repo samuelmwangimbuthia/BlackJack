@@ -79,15 +79,25 @@ singlePlayerButton.addEventListener('click', function(){
   playerImageSection.style.display = 'inline';
 
   showStatus();
+  printDealerCardImages();
+  printplayerCardImages();
 
 });
 
 //Taking a card or staying
 hitButton.addEventListener('click', function(){
   playerCards.push(getNextCard());
+  let newCard = `../img/${getCardString(playerCards.pop())}`
+  appendNewCard(newCard, playerImageArea)
   checkForEndOfGame();
   showStatus();
 });
+
+function appendNewCard(nextCard,imageArea){
+  let img = new Image(100,200);
+  img.src = nextCard;
+  imageArea.appendChild(img);
+}
 
 stayButton.addEventListener('click', function(){
   gameOver = true;
@@ -185,6 +195,9 @@ function checkForEndOfGame(){
       && playerScore <= 21
       && dealerScore <=21){
       dealerCards.push(getNextCard());
+      let newCard = `../img/${getCardString(dealerCards.pop())}`;
+      //console.log(dealerCards.pop())
+      appendNewCard(newCard,dealerImageArea)
       updateScore();
       }
   }
@@ -214,6 +227,7 @@ function showStatus(){
     'Please Choose Player Mode...';
     return;
   }
+
   //calculating the score
   let dealerCardString ='';
   for(let i=0; i<dealerCards.length; i++){
@@ -226,7 +240,10 @@ function showStatus(){
   }
 
   updateScore();
-
+  
+  
+  
+}
   // print player card images
   function playerCardImages(){
     let playerImages = [];
@@ -252,6 +269,7 @@ function showStatus(){
 
   //print each image. Iterate through the images in the playerImages array and dealerImages array
   //print image for each in the html document
+function printDealerCardImages(){
 
   dealerCardImages().forEach(function(item){
     let image = new Image(100, 200);
@@ -259,17 +277,20 @@ function showStatus(){
     dealerImageArea.appendChild(image);
   });
 
+}
 
+function printplayerCardImages(){
   playerCardImages().forEach(function(item){
     let image = new Image(100, 200);
     image.src = item;
     playerImageArea.appendChild(image);
 
   });
-
+}
+// TO DO..
 // update image captions
-dealerCardName.innerText = dealerCardString;
-playerCardName.innerText = playerCardString;
+// dealerCardName.innerText = dealerCardString;
+// playerCardName.innerText = playerCardString;
 
 /*
 updateScore();
@@ -295,7 +316,7 @@ updateScore();
     stayButton.style.display= 'none';
   }
 
-}
+
 /*
 
 // variable that holds the player cards
