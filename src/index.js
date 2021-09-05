@@ -78,17 +78,23 @@ singlePlayerButton.addEventListener('click', function(){
   dealerImageSection.style.display = 'inline';
   playerImageSection.style.display = 'inline';
 
-  showStatus();
   printDealerCardImages();
   printplayerCardImages();
+  printPlayerCardString();
+  printDealerCardString();
 
 });
 
 //Taking a card or staying
 hitButton.addEventListener('click', function(){
   playerCards.push(getNextCard());
-  let newCard = `../img/${getCardString(playerCards.pop())}`
-  appendNewCard(newCard, playerImageArea)
+  let newCard = getCardString(playerCards[playerCards.length - 1]);
+  let newCardImage = `../img/${newCard}`
+  let textnode = document.createTextNode(`${newCard} \n`)
+
+  appendNewCard(newCardImage, playerImageArea)//display image
+  playerCardName.appendChild(textnode); // display text TO DO: list on separate lines
+
   checkForEndOfGame();
   showStatus();
 });
@@ -186,17 +192,14 @@ function getScore(cardArray){
 }
 
 function checkForEndOfGame(){
-
   updateScore();
-
   if (gameOver){
     // let Dealer take cards
     while(dealerScore < playerScore
       && playerScore <= 21
       && dealerScore <=21){
       dealerCards.push(getNextCard());
-      let newCard = `../img/${getCardString(dealerCards.pop())}`;
-      //console.log(dealerCards.pop())
+      let newCard = `../img/${getCardString(dealerCards[dealerCards.length - 1])}`;
       appendNewCard(newCard,dealerImageArea)
       updateScore();
       }
@@ -205,8 +208,9 @@ function checkForEndOfGame(){
   if (playerScore>21){
     playerWon = false;
     gameOver = true;
-  } else if (dealerScore> 21){
-    playerWon= true;
+}
+else if (dealerScore > 21){
+    playerWon = true;
     gameOver = true;
   } else if (gameOver){
     if (playerScore>dealerScore){
@@ -228,22 +232,51 @@ function showStatus(){
     return;
   }
 
+  updateScore();
+
+textArea.innerText =
+  "Dealer has: \n" +
+  createDealerCardString() +
+  "(score: " +
+  dealerScore +
+  ")\n\n" + //to show them on a separate paragraph---break
+  "Player has: \n" +
+  createPlayerCardString() +
+  "(score: " +
+  playerScore +
+  ")\n\n"; //to show them on a separate paragraph---break
+
+if (gameOver) {
+  if (playerWon) {
+    textArea.innerText += "YOU WIN!";
+    textArea.style.display = "inline";
+  } else {
+    textArea.innerText += "DEALER WINS!";
+    textArea.style.display = "inline";
+  }
+  newGameButton.style.display = "inline";
+  hitButton.style.display = "none";
+  stayButton.style.display = "none";
+}
+}
+
+function createDealerCardString(){
   //calculating the score
   let dealerCardString ='';
   for(let i=0; i<dealerCards.length; i++){
     dealerCardString+=  getCardString(dealerCards[i])+ '\n'; //to get dealt cards on separate lines
   }
+  return dealerCardString;
+}
 
+function createPlayerCardString(){
   let playerCardString ='';
   for(let i=0; i<playerCards.length; i++){
     playerCardString+=  getCardString(playerCards[i])+ '\n'; //to get dealt cards on separate lines
   }
-
-  updateScore();
-  
-  
-  
+  return playerCardString;
 }
+
   // print player card images
   function playerCardImages(){
     let playerImages = [];
@@ -287,46 +320,38 @@ function printplayerCardImages(){
 
   });
 }
-// TO DO..
+
 // update image captions
-// dealerCardName.innerText = dealerCardString;
-// playerCardName.innerText = playerCardString;
+function printDealerCardString(){
+ dealerCardName.innerText = createDealerCardString();
+}
+function printPlayerCardString(){
+ playerCardName.innerText = createPlayerCardString();
+}
 
-/*
 updateScore();
-  textArea.innerText =
-   'Dealer has: \n' +
-   dealerCardString +
-   '(score: '+dealerScore + ')\n\n' + //to show them on a separate paragraph---break
+textArea.innerText =
+  "Dealer has: \n" +
+  createDealerCardString() +
+  "(score: " +
+  dealerScore +
+  ")\n\n" + //to show them on a separate paragraph---break
+  "Player has: \n" +
+  createPlayerCardString() +
+  "(score: " +
+  playerScore +
+  ")\n\n"; //to show them on a separate paragraph---break
 
-   'Player has: \n' +
-   playerCardString +
-   '(score: '+playerScore + ')\n\n' //to show them on a separate paragraph---break
-*/
-  if(gameOver){
-    if(playerWon){
-      textArea.innerText +='YOU WIN!';
-      textArea.style.display = 'inline';
-    } else {
-      textArea.innerText += 'DEALER WINS!';
-      textArea.style.display = 'inline';
-    }
-    newGameButton.style.display = 'inline';
-    hitButton.style.display= 'none';
-    stayButton.style.display= 'none';
+if (gameOver) {
+  if (playerWon) {
+    textArea.innerText += "YOU WIN!";
+    textArea.style.display = "inline";
+  } else {
+    textArea.innerText += "DEALER WINS!";
+    textArea.style.display = "inline";
   }
+  newGameButton.style.display = "inline";
+  hitButton.style.display = "none";
+  stayButton.style.display = "none";
+}
 
-
-/*
-
-// variable that holds the player cards
-let playerCards = [getNextCard(), getNextCard() ];
-let salesTax;
-
-console.log('Welcome to BlackJack');
-console.log('You are dealt:');
-
-//call the getStringCard function
-console.log(' '+getCardString(playerCards[0]) );
-console.log(' '+getCardString(playerCards[1]) );
- */
